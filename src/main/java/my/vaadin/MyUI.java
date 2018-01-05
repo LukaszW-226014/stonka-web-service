@@ -47,6 +47,7 @@ public class MyUI extends UI {
         filterText.addValueChangeListener(e -> updateList());
         filterText.setValueChangeMode(ValueChangeMode.LAZY);
 
+        
         Button clearFilterTextBtn = new Button(FontAwesome.TIMES);
         clearFilterTextBtn.setDescription("Clear the current filter");
         clearFilterTextBtn.addClickListener(e -> filterText.clear());
