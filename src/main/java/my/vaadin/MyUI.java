@@ -27,6 +27,7 @@ public class MyUI extends UI {
     private CustomerService service = CustomerService.getInstance();
     private Grid<Customer> grid = new Grid<>(Customer.class);
     private TextField filterText = new TextField();
+    private CustomerForm form = new CustomerForm(this);
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
@@ -47,7 +48,7 @@ public class MyUI extends UI {
         filterText.addValueChangeListener(e -> updateList());
         filterText.setValueChangeMode(ValueChangeMode.LAZY);
 
-        
+
         Button clearFilterTextBtn = new Button(FontAwesome.TIMES);
         clearFilterTextBtn.setDescription("Clear the current filter");
         clearFilterTextBtn.addClickListener(e -> filterText.clear());
@@ -56,14 +57,38 @@ public class MyUI extends UI {
         filtering.addComponents(filterText, clearFilterTextBtn);
         filtering.setStyleName(ValoTheme.LAYOUT_COMPONENT_GROUP);
 
+        Button addCustomerButton = new Button("Add new customer");
+        addCustomerButton.addClickListener(clickEvent -> {
+            grid.asSingleSelect().clear();
+            form.setCustomer(new Customer());
+        });
+
+        HorizontalLayout toolbar = new HorizontalLayout(filtering, addCustomerButton);
+
+
         grid.setColumns("firstName", "lastName", "email");
 
         // add Grid to the layout
-        layout.addComponents(filtering, grid);
+        //layout.addComponents(filtering, grid);
+        HorizontalLayout main = new HorizontalLayout(grid, form);
+        main.setSizeFull();
+        grid.setSizeFull();
+        main.setExpandRatio(grid, 1);
+
+        layout.addComponents(toolbar, main);
 
         updateList();
 
         setContent(layout);
+
+        form.setVisible(false);
+
+        grid.asSingleSelect().addValueChangeListener(event -> {
+            if (event.getValue() == null){
+                form.setVisible(false);
+            } else{
+                form.setCustomer(event.getValue());            }
+        });
 
 //        AdminLayout admin = new AdminLayout();
 //        admin.addComponents(admin.getCheck(), admin.getChuj(), admin.getKurwa(), admin.getStonka());
