@@ -4,6 +4,9 @@ import javax.servlet.annotation.WebServlet;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
+import com.vaadin.navigator.Navigator;
+import com.vaadin.navigator.View;
+import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.server.FontAwesome;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
@@ -21,13 +24,14 @@ import java.util.List;
  * overridden to add component to the user interface and initialize non-component functionality.
  */
 @Theme("mytheme")
-public class MyUI extends UI {
+public class MyUI extends UI implements View{
 
     // Add the next two lines:
     private CustomerService service = CustomerService.getInstance();
     private Grid<Customer> grid = new Grid<>(Customer.class);
     private TextField filterText = new TextField();
     private CustomerForm form = new CustomerForm(this);
+
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
@@ -62,6 +66,18 @@ public class MyUI extends UI {
             grid.asSingleSelect().clear();
             form.setCustomer(new Customer());
         });
+
+        NavigatorUI navigatorUI = new NavigatorUI();
+        Navigator navigator = new Navigator(this, this);
+        Button button = new Button("Go to Main View",
+                new Button.ClickListener() {
+                    @Override
+                    public void buttonClick(Button.ClickEvent clickEvent) {
+                        navigator.navigateTo(navigatorUI.MAINVIEW);
+                    }
+                });
+        layout.addComponent(button);
+        layout.setComponentAlignment(button, Alignment.MIDDLE_CENTER);
 
         HorizontalLayout toolbar = new HorizontalLayout(filtering, addCustomerButton);
 
@@ -99,6 +115,11 @@ public class MyUI extends UI {
         // fetch list of Customers from service and assign it to Grid
         List<Customer> customers = service.findAll(filterText.getValue());
         grid.setItems(customers);
+    }
+
+    @Override
+    public void enter(ViewChangeListener.ViewChangeEvent event) {
+        Notification.show("Welcome to the Animal Farm");
     }
 
     //Button admin = new Button("Go to admin");
