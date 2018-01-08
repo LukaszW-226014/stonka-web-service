@@ -24,13 +24,13 @@ public class CustomerForm extends CustomerFormDesign {
 
     private void delete() {
         service.delete(customer);
-        myUI.updateList();
+        //myUI.updateList();
         setVisible(false);
     }
 
     private void save() {
         service.save(customer);
-        myUI.updateList();
+        //myUI.updateList();
         setVisible(false);
     }
 
