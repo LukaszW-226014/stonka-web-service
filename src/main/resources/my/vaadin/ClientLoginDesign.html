@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.0.5">
+ </head>
+ <body>
+  <vaadin-vertical-layout size-full>
+   <vaadin-vertical-layout size-auto :middle :center>
+    <vaadin-label style-name="h3" plain-text _id="logadmin" :center>
+      Logowanie jako klient: 
+    </vaadin-label>
+    <vaadin-form-layout size-auto>
+     <vaadin-text-field caption="Email" _id="email"></vaadin-text-field>
+     <vaadin-text-field caption="Haslo" _id="haslo1"></vaadin-text-field>
+     <vaadin-horizontal-layout>
+      <vaadin-button style-name="primary" plain-text _id="login">
+        Login 
+      </vaadin-button>
+      <vaadin-button plain-text _id="cancel">
+        Cancel 
+      </vaadin-button>
+     </vaadin-horizontal-layout>
+    </vaadin-form-layout>
+   </vaadin-vertical-layout>
+  </vaadin-vertical-layout>
+ </body>
+</html>

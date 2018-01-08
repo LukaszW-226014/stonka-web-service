@@ -7,6 +7,9 @@ public class LoginChoice extends LoginDesign implements View, SwitchView{
     public LoginChoice(Navigator navigator) {
         home.addClickListener(clickEvent -> this.goToView(navigator, "main"));
         admin.addClickListener(clickEvent -> this.goToView(navigator, "adminLogin"));
+        analityk.addClickListener(clickEvent -> this.goToView(navigator, "analystLogin"));
+        kierownik.addClickListener(clickEvent -> this.goToView(navigator, "directorLogin"));
+        klient.addClickListener(clickEvent -> this.goToView(navigator, "clientLogin"));
     }
 
     @Override

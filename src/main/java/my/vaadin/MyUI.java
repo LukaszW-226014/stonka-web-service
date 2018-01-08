@@ -52,6 +52,9 @@ public class MyUI extends UI {
         navigator.addView("main", new Main(navigator));
         navigator.addView("login", new LoginChoice(navigator));
         navigator.addView("adminLogin", new AdminLogin(navigator));
+        navigator.addView("analystLogin", new AnalystLogin(navigator));
+        navigator.addView("directorLogin", new DirectorLogin(navigator));
+        navigator.addView("clientLogin", new ClientLogin(navigator));
 
 
 
