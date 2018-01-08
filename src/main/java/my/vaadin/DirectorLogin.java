@@ -11,6 +11,6 @@ public class DirectorLogin extends DirectorLoginDesign implements View, SwitchVi
 
     @Override
     public void goToView(Navigator navigator, String view) {
-
+        navigator.navigateTo(view);
     }
 }

@@ -13,6 +13,6 @@ public class AnalystLogin extends AnalystLoginDesign implements View, SwitchView
 
     @Override
     public void goToView(Navigator navigator, String view) {
-
+        navigator.navigateTo(view);
     }
 }

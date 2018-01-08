@@ -5,7 +5,7 @@ import com.vaadin.navigator.View;
 
 public class LoginChoice extends LoginDesign implements View, SwitchView{
     public LoginChoice(Navigator navigator) {
-        home.addClickListener(clickEvent -> this.goToView(navigator, "main"));
+        home.addClickListener(clickEvent -> this.goToView(navigator, ""));
         admin.addClickListener(clickEvent -> this.goToView(navigator, "adminLogin"));
         analityk.addClickListener(clickEvent -> this.goToView(navigator, "analystLogin"));
         kierownik.addClickListener(clickEvent -> this.goToView(navigator, "directorLogin"));

@@ -11,6 +11,6 @@ public class ClientLogin extends ClientLoginDesign implements View, SwitchView {
 
     @Override
     public void goToView(Navigator navigator, String view) {
-
+        navigator.navigateTo(view);
     }
 }
