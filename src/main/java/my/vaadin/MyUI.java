@@ -24,13 +24,13 @@ import java.util.List;
  * overridden to add component to the user interface and initialize non-component functionality.
  */
 @Theme("mytheme")
-public class MyUI extends UI {
+public class MyUI extends UI implements View {
 
     // Add the next two lines:
-    public Navigator navigator;
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
+        Navigator navigator;
         //final VerticalLayout layout = new VerticalLayout();
         //final Navigator navigator = new Navigator(this, layout);
         //setContent(layout);
@@ -49,7 +49,7 @@ public class MyUI extends UI {
         navigator = new Navigator(this, this);
 
         // Create and register the views
-        navigator.addView("main", new Main(navigator));
+        navigator.addView("", new Main(navigator));
         navigator.addView("login", new LoginChoice(navigator));
         navigator.addView("adminLogin", new AdminLogin(navigator));
         navigator.addView("analystLogin", new AnalystLogin(navigator));
