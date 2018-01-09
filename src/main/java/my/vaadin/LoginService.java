@@ -44,11 +44,11 @@ public class LoginService {
                 String haslo1 = rs.getString("haslo");
 
                 if (email1.equals(email.getValue()) && haslo1.equals(haslo.getValue())){
-                    Notification.show("Haslo poprawne.\nZapraszamy", Notification.Type.HUMANIZED_MESSAGE);
+                    Notification.show("Login i haslo poprawne.", "Zapraszamy!", Notification.Type.TRAY_NOTIFICATION);
                     navigator.navigateTo(view);
                 }
                 else{
-                    Notification.show("Haslo niepoprawne!\nSpróbuj jeszcze raz.", Notification.Type.WARNING_MESSAGE);
+                    Notification.show("Login/Haslo niepoprawne!", "Spróbuj jeszcze raz.", Notification.Type.WARNING_MESSAGE);
                 }
             }
             rs.close();

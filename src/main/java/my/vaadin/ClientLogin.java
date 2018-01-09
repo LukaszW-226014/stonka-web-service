@@ -8,7 +8,7 @@ public class ClientLogin extends ClientLoginDesign implements View, SwitchView, 
 
     public ClientLogin(Navigator navigator) {
         cancel.addClickListener(clickEvent -> this.goToView(navigator, "login"));
-        login.addClickListener(clickEvent -> this.logging(email, haslo, navigator, "adminPanel", "klienci"));
+        login.addClickListener(clickEvent -> this.logging(email, haslo, navigator, "klientPanel", "klienci"));
     }
 
     @Override

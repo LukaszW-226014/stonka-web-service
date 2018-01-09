@@ -31,18 +31,7 @@ public class MyUI extends UI implements View {
     @Override
     protected void init(VaadinRequest vaadinRequest) {
         Navigator navigator;
-        //final VerticalLayout layout = new VerticalLayout();
-        //final Navigator navigator = new Navigator(this, layout);
-        //setContent(layout);
-//        navigator.addView("login", new LoginChoice());
-//        Button button = new Button("Go to login choice", new Button.ClickListener() {
-//            @Override
-//            public void buttonClick(Button.ClickEvent clickEvent) {
-//                navigator.navigateTo("login");
-//            }
-//        });
-//
-//        layout.addComponent(button);
+
         getPage().setTitle("Stonka Service");
 
         // Create a navigator to control the views
@@ -56,20 +45,13 @@ public class MyUI extends UI implements View {
         navigator.addView("directorLogin", new DirectorLogin(navigator));
         navigator.addView("clientLogin", new ClientLogin(navigator));
         navigator.addView("adminPanel", new AdminPanel(navigator));
-
+        navigator.addView("analitykPanel", new AnalitykPanel(navigator));
+        navigator.addView("kierownikPanel", new KierownikPanel(navigator));
+        navigator.addView("klientPanel", new KlientPanel(navigator));
 
 
         setContent(new Main(navigator));
-
-
     }
-
-
-//    @Override
-//    public void enter(ViewChangeEvent event) {
-//        Notification.show("Welcome to the Animal Farm");
-//    }
-
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
     @VaadinServletConfiguration(ui = MyUI.class, productionMode = true)

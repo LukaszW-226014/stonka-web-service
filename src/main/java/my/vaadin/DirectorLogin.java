@@ -8,7 +8,7 @@ public class DirectorLogin extends DirectorLoginDesign implements View, SwitchVi
 
     public DirectorLogin(Navigator navigator) {
         cancel.addClickListener(clickEvent -> this.goToView(navigator, "login"));
-        login.addClickListener(clickEvent -> this.logging(email, haslo, navigator, "adminPanel", "kierownicy"));
+        login.addClickListener(clickEvent -> this.logging(email, haslo, navigator, "kierownikPanel", "kierownicy"));
     }
 
     @Override

@@ -13,7 +13,7 @@ public class AnalystLogin extends AnalystLoginDesign implements View, SwitchView
 
     public AnalystLogin(Navigator navigator) {
         cancel.addClickListener(clickEvent -> this.goToView(navigator, "login"));
-        login.addClickListener(clickEvent -> this.logging(email, haslo, navigator, "adminPanel", "analitycy"));
+        login.addClickListener(clickEvent -> this.logging(email, haslo, navigator, "analitykPanel", "analitycy"));
     }
 
     @Override

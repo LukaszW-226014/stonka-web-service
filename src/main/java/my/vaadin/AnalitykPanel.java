@@ -3,11 +3,9 @@ package my.vaadin;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.View;
 
-import java.awt.*;
+public class AnalitykPanel extends AnalitykPanelDesign implements View, SwitchView {
 
-public class AdminPanel extends AdminPanelDesign implements View, SwitchView {
-
-    public AdminPanel(Navigator navigator) {
+    public AnalitykPanel(Navigator navigator) {
         home.addClickListener(clickEvent -> this.goToView(navigator, ""));
     }
 
@@ -15,5 +13,4 @@ public class AdminPanel extends AdminPanelDesign implements View, SwitchView {
     public void goToView(Navigator navigator, String view) {
         navigator.navigateTo(view);
     }
-
 }
