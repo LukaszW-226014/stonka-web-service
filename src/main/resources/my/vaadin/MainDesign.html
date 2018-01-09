@@ -6,35 +6,36 @@
   <meta name="vaadin-version" content="8.0.5">
  </head>
  <body>
-  <vaadin-vertical-layout size-full margin="false">
-   <vaadin-horizontal-layout style-name="well" width-full>
-    <vaadin-image source="C:/Users/Luke/Development/Java/stonka-web-service/src/main/webapp/WEB-INF/images/stonka.png" width="200px"></vaadin-image>
-    <vaadin-button style-name="danger" plain-text _id="loginchoice" :middle :right>
-      Go to login choice 
+  <vaadin-vertical-layout spacing="false" size-full margin="false">
+   <vaadin-horizontal-layout style-name="well" width-full height="75px">
+    <vaadin-image source="C:/Users/Luke/Development/Java/stonka-web-service/src/main/webapp/WEB-INF/images/stonka.png" width="200px" :middle></vaadin-image>
+    <vaadin-button icon="fonticon://Vaadin-Icons/e80c" style-name="danger" plain-text _id="loginchoice" :middle :right>
+      Logowanie 
     </vaadin-button>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout width-full>
-    <vaadin-label style-name="bold h2" plain-text _id="lbl1" :middle :center>
-      Najlepsze ceny! 
-    </vaadin-label>
+   <vaadin-horizontal-layout spacing="false" width-full height="300px" :center :expand>
+    <vaadin-image source="http://garymatthews.com/wp-content/uploads/TraderJoes-web.jpg" width-full height="300px" :expand></vaadin-image>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout width-full>
-    <vaadin-label style-name="bold h2" plain-text _id="lbl2" :middle :center>
-      Najlepsza jakość! 
-    </vaadin-label>
+   <vaadin-horizontal-layout style-name="card" width="1024px" :middle :center>
+    <vaadin-image source="https://www.j2store.org/images/themeparrot/home_page/shopping-cart.png" :middle :center></vaadin-image>
+    <vaadin-vertical-layout size-auto>
+     <vaadin-label style-name="bold h2" plain-text _id="lbl1" :middle :center>
+       Najlepsze ceny! 
+     </vaadin-label>
+     <vaadin-label style-name="bold h2" plain-text _id="lbl2" :middle :center>
+       Najlepsza jakość! 
+     </vaadin-label>
+     <vaadin-label style-name="bold h2" plain-text _id="lbl3" :middle :center>
+       Niezapomniane wrażenia! 
+     </vaadin-label>
+     <vaadin-label style-name="bold h2 light success" plain-text _id="lbl4" :middle :center>
+       STONKA TWÓJ NAJLEPSZY WYBÓR! 
+     </vaadin-label>
+    </vaadin-vertical-layout>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout width-full>
-    <vaadin-label style-name="bold h2" plain-text _id="lbl3" :middle :center>
-      Niezapomniane wrażenia! 
-    </vaadin-label>
-   </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout style-name="well" width-full margin>
-    <vaadin-label style-name="bold h2" plain-text _id="lbl4" :middle :center>
-      STONKA CIĘ ROZKURWI!! 
-    </vaadin-label>
-   </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout style-name="well" width-full :bottom>
-    <vaadin-label style-name="light" plain-text :center>
+   <vaadin-css-layout width-full height="100px"></vaadin-css-layout>
+   <vaadin-horizontal-layout style-name="well" width-full height="50px" :bottom>
+    <vaadin-label style-name="light" plain-text :middle :center>
       Stonka Service v1.0 2018.01.10 
     </vaadin-label>
    </vaadin-horizontal-layout>
