@@ -44,7 +44,7 @@ public class LoginService {
                 String haslo1 = rs.getString("haslo");
 
                 if (email1.equals(email.getValue()) && haslo1.equals(haslo.getValue())){
-                    Notification.show("Login i haslo poprawne.", "Zapraszamy!", Notification.Type.TRAY_NOTIFICATION);
+                    Notification.show("Login i haslo poprawne.", "Zapraszamy!", Notification.Type.HUMANIZED_MESSAGE);
                     navigator.navigateTo(view);
                 }
                 else{

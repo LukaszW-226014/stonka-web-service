@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.0.5">
+ </head>
+ <body>
+  <vaadin-vertical-layout style-name="well" width="830px" height="880px">
+   <vaadin-form-layout size-auto margin>
+    <vaadin-vertical-layout style-name="card" size-auto>
+     <vaadin-label style-name="h2" plain-text>
+       Dane osobowe: 
+     </vaadin-label>
+     <vaadin-horizontal-layout>
+      <vaadin-text-field caption="Imię" style-name="align-right" width="300px" _id="imie"></vaadin-text-field>
+      <vaadin-text-field caption="Nazwisko" style-name="align-right" width="300px" _id="nazwisko"></vaadin-text-field>
+     </vaadin-horizontal-layout>
+     <vaadin-horizontal-layout>
+      <vaadin-text-field caption="Pesel" style-name="align-right" width="300px" _id="pesel"></vaadin-text-field>
+      <vaadin-date-field caption="Data urodzenia" style-name="align-right" width="300px"></vaadin-date-field>
+     </vaadin-horizontal-layout>
+    </vaadin-vertical-layout>
+    <vaadin-vertical-layout style-name="card" size-auto>
+     <vaadin-label style-name="h2" plain-text>
+       Adres: 
+     </vaadin-label>
+     <vaadin-horizontal-layout>
+      <vaadin-text-field caption="Ulica" style-name="align-right" width="300px" _id="ulica"></vaadin-text-field>
+      <vaadin-text-field caption="Nr domu" style-name="align-right" width="300px" _id="nrDomu"></vaadin-text-field>
+     </vaadin-horizontal-layout>
+     <vaadin-horizontal-layout>
+      <vaadin-text-field caption="Miejscowość" style-name="align-right" width="300px" _id="miejscowosc"></vaadin-text-field>
+      <vaadin-text-field caption="Kod Pocztowy" style-name="align-right" width="300px" _id="kod"></vaadin-text-field>
+     </vaadin-horizontal-layout>
+    </vaadin-vertical-layout>
+    <vaadin-vertical-layout style-name="card" size-auto>
+     <vaadin-label style-name="h2" plain-text>
+       Dane logowania: 
+     </vaadin-label>
+     <vaadin-horizontal-layout>
+      <vaadin-text-field caption="Email" style-name="align-right" width="300px" _id="email"></vaadin-text-field>
+      <vaadin-password-field caption="Hasło" style-name="align-right" width="300px" _id="haslo"></vaadin-password-field>
+     </vaadin-horizontal-layout>
+    </vaadin-vertical-layout>
+    <vaadin-vertical-layout size-auto>
+     <vaadin-horizontal-layout>
+      <vaadin-css-layout width="400px"></vaadin-css-layout>
+      <vaadin-button style-name="primary" plain-text _id="save">
+        Zapisz 
+      </vaadin-button>
+      <vaadin-button plain-text _id="cancel">
+        Cancel 
+      </vaadin-button>
+     </vaadin-horizontal-layout>
+    </vaadin-vertical-layout>
+   </vaadin-form-layout>
+  </vaadin-vertical-layout>
+ </body>
+</html>

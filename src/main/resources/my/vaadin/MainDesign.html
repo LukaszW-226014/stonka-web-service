@@ -9,11 +9,16 @@
   <vaadin-vertical-layout spacing="false" size-full margin="false">
    <vaadin-horizontal-layout style-name="card" width-full height="75px">
     <vaadin-image source="C:/Users/Luke/Development/Java/stonka-web-service/src/main/webapp/WEB-INF/images/stonka.png" width="200px" :middle></vaadin-image>
-    <vaadin-button icon="fonticon://Vaadin-Icons/e80c" style-name="danger" plain-text _id="loginchoice" :middle :right>
-      Logowanie 
-    </vaadin-button>
+    <vaadin-horizontal-layout :middle :right>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e80c" style-name="primary" width="170px" plain-text _id="loginchoice">
+       Logowanie 
+     </vaadin-button>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e801" style-name="friendly" width="170px" plain-text _id="register">
+       Rejestracja 
+     </vaadin-button>
+    </vaadin-horizontal-layout>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout spacing="false" width-full height="300px" :center :expand>
+   <vaadin-horizontal-layout spacing="false" size-full :expand>
     <vaadin-image source="http://garymatthews.com/wp-content/uploads/TraderJoes-web.jpg" width-full height="300px" :expand></vaadin-image>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout style-name="card" width="1024px" :middle :center>

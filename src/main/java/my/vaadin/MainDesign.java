@@ -20,6 +20,7 @@ import com.vaadin.ui.Label;
 @SuppressWarnings("serial")
 public class MainDesign extends VerticalLayout {
     protected Button loginchoice;
+    protected Button register;
     protected Label lbl1;
     protected Label lbl2;
     protected Label lbl3;

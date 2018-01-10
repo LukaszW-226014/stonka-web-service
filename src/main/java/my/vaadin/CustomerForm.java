@@ -12,6 +12,10 @@ public class CustomerForm extends CustomerFormDesign {
     private MyUI myUI;
     private Binder<Customer> binder = new Binder<>(Customer.class);
 
+    public CustomerForm() {
+
+    }
+
     public CustomerForm(MyUI myUI) {
         this.myUI = myUI;
         status.setItems(CustomerStatus.values());
