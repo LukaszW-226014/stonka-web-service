@@ -1,5 +1,6 @@
 package my.vaadin;
 
+import com.vaadin.event.ShortcutAction;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.View;
 import com.vaadin.shared.ui.ValueChangeMode;
@@ -11,6 +12,7 @@ import java.sql.*;
 public class AdminLogin extends AdminLoginDesign implements View, SwitchView, LoggingAccount {
     public AdminLogin(Navigator navigator) {
         cancel.addClickListener(clickEvent -> this.goToView(navigator, "login"));
+        login.setClickShortcut(ShortcutAction.KeyCode.ENTER);
         login.addClickListener(clickEvent -> this.logging(email, haslo, navigator, "adminPanel", "administratorzy"));
     }
 

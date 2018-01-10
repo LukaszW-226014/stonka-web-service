@@ -1,5 +1,6 @@
 package my.vaadin;
 
+import com.vaadin.event.ShortcutAction;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.View;
 import com.vaadin.ui.TextField;
@@ -8,6 +9,7 @@ public class ClientLogin extends ClientLoginDesign implements View, SwitchView, 
 
     public ClientLogin(Navigator navigator) {
         cancel.addClickListener(clickEvent -> this.goToView(navigator, "login"));
+        login.setClickShortcut(ShortcutAction.KeyCode.ENTER);
         login.addClickListener(clickEvent -> this.logging(email, haslo, navigator, "klientPanel", "klienci"));
     }
 
