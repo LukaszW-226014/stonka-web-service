@@ -38,17 +38,21 @@ public class LoginService {
             String sql = "SELECT email, haslo FROM " + table;
             ResultSet rs = stmt.executeQuery(sql);
             //STEP 5: Extract data from result set
-            while(rs.next()){
+            boolean access = false;
+            while(!access && rs.next()){
                 //Retrieve by column name
                 String email1 = rs.getString("email");
                 String haslo1 = rs.getString("haslo");
 
+
                 if (email1.equals(email.getValue()) && haslo1.equals(haslo.getValue())){
                     Notification.show("Login i haslo poprawne.", "Zapraszamy!", Notification.Type.HUMANIZED_MESSAGE);
                     navigator.navigateTo(view);
+                    access = true;
                 }
                 else{
                     Notification.show("Login/Haslo niepoprawne!", "Spróbuj jeszcze raz.", Notification.Type.WARNING_MESSAGE);
+                    access = false;
                 }
             }
             rs.close();
