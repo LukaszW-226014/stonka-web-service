@@ -23,6 +23,8 @@ public class Main extends MainDesign implements View, SwitchView, SubWindow{
         RegistrationForm register = new RegistrationForm();
         subWindow.setContent(register);
         register.cancel.addClickListener(clickEvent -> subWindow.close());
+        register.save.addClickListener(clickEvent -> register.addClient());
+        register.save.addClickListener(clickEvent -> subWindow.close());
 
         // Center it in the browser window
         subWindow.center();
