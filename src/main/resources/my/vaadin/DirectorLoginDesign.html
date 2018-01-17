@@ -8,19 +8,22 @@
  <body>
   <vaadin-vertical-layout size-full>
    <vaadin-vertical-layout style-name="card" size-auto :middle :center>
-    <vaadin-label style-name="h3 bold" plain-text _id="logadmin" :center>
+    <vaadin-label style-name="h3 bold" plain-text _id="logadmin" :middle :center>
       Logowanie jako kierownik: 
     </vaadin-label>
     <vaadin-form-layout size-auto>
-     <vaadin-text-field caption="Email" style-name="align-right" _id="email"></vaadin-text-field>
-     <vaadin-password-field caption="Hasło" style-name="align-right" _id="haslo"></vaadin-password-field>
+     <vaadin-text-field caption="Email" style-name="align-right" width="290px" _id="email"></vaadin-text-field>
+     <vaadin-password-field caption="Hasło" style-name="align-right" width="290px" _id="haslo"></vaadin-password-field>
      <vaadin-horizontal-layout>
-      <vaadin-button style-name="primary" plain-text _id="login">
-        Login 
-      </vaadin-button>
-      <vaadin-button plain-text _id="cancel">
-        Cancel 
-      </vaadin-button>
+      <vaadin-css-layout width="90px"></vaadin-css-layout>
+      <vaadin-horizontal-layout>
+       <vaadin-button style-name="primary" plain-text _id="login">
+         Login 
+       </vaadin-button>
+       <vaadin-button plain-text _id="cancel">
+         Cancel 
+       </vaadin-button>
+      </vaadin-horizontal-layout>
      </vaadin-horizontal-layout>
     </vaadin-form-layout>
    </vaadin-vertical-layout>

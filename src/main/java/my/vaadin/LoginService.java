@@ -14,6 +14,8 @@ public class LoginService {
     //  Database credentials
     final String USER = "stonka";
     final String PASS = "administrator";
+    public static int userIndex;
+
 
     public LoginService(TextField email, TextField haslo, Navigator navigator, String view, String table) {
         login(email, haslo, navigator, view, table);
@@ -35,20 +37,25 @@ public class LoginService {
             System.out.println("Creating statement...");
             stmt = conn.createStatement();
 
-            String sql = "SELECT email, haslo FROM " + table;
+            String sql = "SELECT id" + table + ",email, haslo FROM " + table;
             ResultSet rs = stmt.executeQuery(sql);
             //STEP 5: Extract data from result set
             boolean access = false;
             while(!access && rs.next()){
                 //Retrieve by column name
+                userIndex = rs.getInt(1);
                 String email1 = rs.getString("email");
                 String haslo1 = rs.getString("haslo");
 
 
                 if (email1.equals(email.getValue()) && haslo1.equals(haslo.getValue())){
+                    email.setValue("");
+                    haslo.setValue("");
                     Notification.show("Login i haslo poprawne.", "Zapraszamy!", Notification.Type.HUMANIZED_MESSAGE);
                     navigator.navigateTo(view);
                     access = true;
+                    System.out.println(userIndex);
+
                 }
                 else{
                     Notification.show("Login/Haslo niepoprawne!", "Spróbuj jeszcze raz.", Notification.Type.WARNING_MESSAGE);

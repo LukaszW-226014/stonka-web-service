@@ -23,80 +23,12 @@
        <vaadin-label style-name="h2" plain-text>
          Ankiety: 
        </vaadin-label>
-       <vaadin-panel size-full :expand>
-        <vaadin-grid size-full _id="ankiety">
-         <table>
-          <colgroup>
-           <col column-id="project" sortable="false">
-           <col column-id="status" sortable="false">
-          </colgroup>
-          <thead>
-           <tr default>
-            <th plain-text column-ids="project">Project</th>
-            <th plain-text column-ids="status">Status</th>
-           </tr>
-          </thead>
-          <tbody>
-           <tr item="project1">
-            <td>Customer Project 1</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project2">
-            <td>Customer Project 2</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project3">
-            <td>Customer Project 3</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project4">
-            <td>Customer Project 4</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project5">
-            <td>Customer Project 5</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project6">
-            <td>Customer Project 6</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project7">
-            <td>Customer Project 7</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project8">
-            <td>Customer Project 8</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project9">
-            <td>Customer Project 9</td>
-            <td>OK</td>
-           </tr>
-          </tbody>
-         </table>
-        </vaadin-grid>
-       </vaadin-panel>
+       <vaadin-panel size-full _id="ankietyPanel" :expand></vaadin-panel>
       </vaadin-vertical-layout>
      </vaadin-css-layout>
-     <vaadin-vertical-layout size-full margin="false" :expand>
-      <vaadin-css-layout style-name="well" :center>
-       <vaadin-form-layout size-auto margin>
-        <vaadin-text-field caption="Ulica" _id="ulica"></vaadin-text-field>
-        <vaadin-text-field caption="Nr Budynku" _id="nrBudynku"></vaadin-text-field>
-        <vaadin-text-field caption="Kod Pocztowy" _id="kod"></vaadin-text-field>
-        <vaadin-text-field caption="Miejscowość" _id="miejscowosc"></vaadin-text-field>
-        <vaadin-horizontal-layout>
-         <vaadin-button style-name="primary" width="100px" plain-text _id="save">
-           Zapisz 
-         </vaadin-button>
-         <vaadin-button width="100px" plain-text _id="delete">
-           Usuń 
-         </vaadin-button>
-        </vaadin-horizontal-layout>
-       </vaadin-form-layout>
-      </vaadin-css-layout>
-     </vaadin-vertical-layout>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e801" style-name="primary" plain-text _id="add" :bottom :right>
+       Dodaj 
+     </vaadin-button>
     </vaadin-vertical-layout>
     <vaadin-vertical-layout style-name="card" size-full :expand>
      <vaadin-css-layout size-full :expand>
@@ -104,60 +36,7 @@
        <vaadin-label style-name="h2" plain-text>
          Wybrana ankieta: 
        </vaadin-label>
-       <vaadin-panel size-full :expand>
-        <vaadin-grid size-full _id="ankieta">
-         <table>
-          <colgroup>
-           <col column-id="project" sortable="false">
-           <col column-id="status" sortable="false">
-          </colgroup>
-          <thead>
-           <tr default>
-            <th plain-text column-ids="project">Project</th>
-            <th plain-text column-ids="status">Status</th>
-           </tr>
-          </thead>
-          <tbody>
-           <tr item="project1">
-            <td>Customer Project 1</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project2">
-            <td>Customer Project 2</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project3">
-            <td>Customer Project 3</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project4">
-            <td>Customer Project 4</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project5">
-            <td>Customer Project 5</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project6">
-            <td>Customer Project 6</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project7">
-            <td>Customer Project 7</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project8">
-            <td>Customer Project 8</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project9">
-            <td>Customer Project 9</td>
-            <td>OK</td>
-           </tr>
-          </tbody>
-         </table>
-        </vaadin-grid>
-       </vaadin-panel>
+       <vaadin-panel size-full _id="ankietaPanel" :expand></vaadin-panel>
       </vaadin-vertical-layout>
      </vaadin-css-layout>
      <vaadin-css-layout size-full :expand>
@@ -165,60 +44,9 @@
        <vaadin-label style-name="h2" plain-text>
          Wyniki: 
        </vaadin-label>
-       <vaadin-panel size-full :expand>
-        <vaadin-grid size-full _id="wyniki">
-         <table>
-          <colgroup>
-           <col column-id="project" sortable="false">
-           <col column-id="status" sortable="false">
-          </colgroup>
-          <thead>
-           <tr default>
-            <th plain-text column-ids="project">Project</th>
-            <th plain-text column-ids="status">Status</th>
-           </tr>
-          </thead>
-          <tbody>
-           <tr item="project1">
-            <td>Customer Project 1</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project2">
-            <td>Customer Project 2</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project3">
-            <td>Customer Project 3</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project4">
-            <td>Customer Project 4</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project5">
-            <td>Customer Project 5</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project6">
-            <td>Customer Project 6</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project7">
-            <td>Customer Project 7</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project8">
-            <td>Customer Project 8</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project9">
-            <td>Customer Project 9</td>
-            <td>OK</td>
-           </tr>
-          </tbody>
-         </table>
-        </vaadin-grid>
-       </vaadin-panel>
+       <vaadin-vertical-layout size-full margin="false" _id="wynikiPanel" :expand>
+        <vaadin-image source="https://h5p.org/sites/default/files/styles/medium-logo/public/logos/chart-icon-color.png?itok=kpLTYHHJ" height="200px" :middle :center></vaadin-image>
+       </vaadin-vertical-layout>
       </vaadin-vertical-layout>
      </vaadin-css-layout>
     </vaadin-vertical-layout>

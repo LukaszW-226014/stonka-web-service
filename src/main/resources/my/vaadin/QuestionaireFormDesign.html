@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.0.5">
+  <meta name="package-mapping" content="com_vaadin:com.vaadin">
+ </head>
+ <body>
+  <vaadin-vertical-layout style-name="well" width="830px" height="650px">
+   <vaadin-form-layout width="782px" margin>
+    <vaadin-vertical-layout style-name="card" size-auto>
+     <vaadin-label style-name="h1" plain-text :bottom>
+       Ankieta: 
+     </vaadin-label>
+     <vaadin-horizontal-layout>
+      <vaadin-text-field caption="Tytuł" style-name="align-right" width="610px" _id="tytul"></vaadin-text-field>
+     </vaadin-horizontal-layout>
+     <vaadin-text-area caption="Opis" width="610px" height="150px" _id="opis"></vaadin-text-area>
+     <vaadin-text-field caption="ID" width="100px" _id="idAnalityka"></vaadin-text-field>
+    </vaadin-vertical-layout>
+    <vaadin-vertical-layout size-auto>
+     <vaadin-horizontal-layout>
+      <vaadin-css-layout width="400px"></vaadin-css-layout>
+      <vaadin-button style-name="primary" plain-text _id="save">
+        Zapisz 
+      </vaadin-button>
+      <vaadin-button plain-text _id="cancel">
+        Cancel 
+      </vaadin-button>
+     </vaadin-horizontal-layout>
+    </vaadin-vertical-layout>
+   </vaadin-form-layout>
+  </vaadin-vertical-layout>
+ </body>
+</html>

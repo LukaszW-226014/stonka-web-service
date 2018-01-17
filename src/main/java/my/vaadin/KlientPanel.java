@@ -8,6 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 public class KlientPanel extends KlientPanelDesign implements View, SwitchView, SubWindow {
     final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -23,12 +24,16 @@ public class KlientPanel extends KlientPanelDesign implements View, SwitchView, 
         settings.addClickListener(clickEvent -> this.subWindow());
     }
 
-    public void loadAnkieta(){
+    public void loadAnkieta(Set<Ankiety> choice){
 
+        List<Ankiety> ankietaChoice = new ArrayList<>();
+        ankietaChoice.addAll(choice);
+        System.out.println(ankietaChoice.toString());
         List<Pytanie> pytanieList= new ArrayList<>();
 
         Connection conn = null;
         Statement stmt = null;
+        Statement stmt2 = null;
         try{
             //STEP 2: Register JDBC driver
             Class.forName(JDBC_DRIVER);
@@ -43,17 +48,28 @@ public class KlientPanel extends KlientPanelDesign implements View, SwitchView, 
             stmt = conn.createStatement();
 
             String sql;
-            sql = "SELECT idPytania, tresc FROM pytania";
+//            sql = "SELECT idPytania, tresc FROM pytania";
+            sql = "SELECT pytania_idPytania, ankiety_idAnkieta FROM pozycje";
             //String sql = "INSERT INTO  klienci VALUES (2,'janek','dzbanek','94110201234', 'janek12@gmail.com', 'janek1')";
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()){
-                int i = 0;
-                int id1 = rs.getInt("idPytania");
-                String tresc1 = rs.getString("tresc");
-                pytanieList.add(new Pytanie(id1, tresc1));
-                System.out.println(pytanieList.get(i).toString());
-                i++;
+                int idAnkiety1 = rs.getInt("ankiety_idAnkieta");
+                if (idAnkiety1 == ankietaChoice.get(0).getIdAnkiety()){
+                    int idPytania1 = rs.getInt("pytania_idPytania");
+                    stmt2 = conn.createStatement();
+                    String sql2 = "SELECT idPytania, tresc FROM pytania WHERE idPytania =" + idPytania1;
+                    ResultSet rs2 = stmt2.executeQuery(sql2);
+                    while (rs2.next()){
+                        int i = 0;
+                        int id1 = idPytania1;
+                        String tresc1 = rs2.getString("tresc");
+                        pytanieList.add(new Pytanie(id1, tresc1));
+                        System.out.println(pytanieList.get(i).toString());
+                        i++;
+                    }
+                }
             }
+
             //stmt.executeUpdate(sql);
             //rs.close();
         }catch(SQLException se){
@@ -100,30 +116,30 @@ public class KlientPanel extends KlientPanelDesign implements View, SwitchView, 
     public void downloadAnkietyTable(){
         List<Ankiety> ankietyList = new ArrayList<>();
 
-        Connection conn = null;
-        Statement stmt = null;
+        Connection conn2 = null;
+        Statement stmt3 = null;
         try{
             //STEP 2: Register JDBC driver
             Class.forName(JDBC_DRIVER);
 
             //STEP 3: Open a connection
             System.out.println("Connecting to a selected database...");
-            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            conn2 = DriverManager.getConnection(DB_URL, USER, PASS);
             System.out.println("Connected database successfully...");
 
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
-            stmt = conn.createStatement();
+            stmt3 = conn2.createStatement();
 
-            String sql;
-            sql = "SELECT idAnkieta, tytul, opis FROM ankiety";
+            String sql3;
+            sql3 = "SELECT idAnkieta, tytul, opis FROM ankiety";
             //String sql = "INSERT INTO  klienci VALUES (2,'janek','dzbanek','94110201234', 'janek12@gmail.com', 'janek1')";
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()){
+            ResultSet rs3 = stmt3.executeQuery(sql3);
+            while (rs3.next()){
                 int i = 0;
-                int id1 = rs.getInt("idAnkieta");
-                String tytul1 = rs.getString("tytul");
-                String opis1 = rs.getString("opis");
+                int id1 = rs3.getInt("idAnkieta");
+                String tytul1 = rs3.getString("tytul");
+                String opis1 = rs3.getString("opis");
                 ankietyList.add(new Ankiety(id1, tytul1, opis1));
                 System.out.println(ankietyList.get(i).toString());
                 i++;
@@ -139,13 +155,13 @@ public class KlientPanel extends KlientPanelDesign implements View, SwitchView, 
         }finally{
             //finally block used to close resources
             try{
-                if(stmt!=null)
-                    conn.close();
+                if(stmt3!=null)
+                    conn2.close();
             }catch(SQLException se){
             }// do nothing
             try{
-                if(conn!=null)
-                    conn.close();
+                if(conn2!=null)
+                    conn2.close();
             }catch(SQLException se){
                 se.printStackTrace();
             }//end finally try
@@ -158,7 +174,8 @@ public class KlientPanel extends KlientPanelDesign implements View, SwitchView, 
         ankietyGrid.addColumn(Ankiety::getIdAnkiety).setCaption("ID");
         ankietyGrid.addColumn(Ankiety::getTytul).setCaption("Tytul");
         ankietyGrid.addColumn(Ankiety::getOpis).setCaption("Opis");
-        ankietyGrid.addSelectionListener(selectionEvent -> this.loadAnkieta());
+            ankietyGrid.addSelectionListener(selectionEvent -> this.loadAnkieta(ankietyGrid.getSelectedItems()));
+        ankietyGrid.setSizeFull();
         ankietyPanel.setContent(ankietyGrid);
     }
 
@@ -185,4 +202,9 @@ public class KlientPanel extends KlientPanelDesign implements View, SwitchView, 
         //addWindow(subWindow);
         UI.getCurrent().addWindow(subWindow);
     }
+/*
+    @Override
+    public void run() {
+        downloadSklepyTable();
+    }*/
 }

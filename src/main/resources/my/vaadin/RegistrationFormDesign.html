@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
   <meta name="vaadin-version" content="8.0.5">
+  <meta name="package-mapping" content="com_vaadin:com.vaadin">
  </head>
  <body>
   <vaadin-vertical-layout style-name="well" width="830px" height="880px">
-   <vaadin-form-layout size-auto margin>
+   <vaadin-form-layout width="782px" margin>
     <vaadin-vertical-layout style-name="card" size-auto>
      <vaadin-label style-name="h2" plain-text>
        Dane osobowe: 
@@ -18,10 +19,10 @@
      </vaadin-horizontal-layout>
      <vaadin-horizontal-layout>
       <vaadin-text-field caption="Pesel" style-name="align-right" width="300px" _id="pesel"></vaadin-text-field>
-      <vaadin-date-field caption="Data urodzenia" style-name="align-right" width="300px"></vaadin-date-field>
+      <vaadin-date-field caption="Data urodzenia" style-name="align-right" width="300px" _id="data"></vaadin-date-field>
      </vaadin-horizontal-layout>
     </vaadin-vertical-layout>
-    <vaadin-vertical-layout style-name="card" size-auto>
+    <vaadin-vertical-layout style-name="card" width="688px">
      <vaadin-label style-name="h2" plain-text>
        Adres: 
      </vaadin-label>
@@ -29,9 +30,15 @@
       <vaadin-text-field caption="Ulica" style-name="align-right" width="300px" _id="ulica"></vaadin-text-field>
       <vaadin-text-field caption="Nr domu" style-name="align-right" width="300px" _id="nrDomu"></vaadin-text-field>
      </vaadin-horizontal-layout>
-     <vaadin-horizontal-layout>
+     <vaadin-horizontal-layout _id="adres2">
       <vaadin-text-field caption="Miejscowość" style-name="align-right" width="300px" _id="miejscowosc"></vaadin-text-field>
-      <vaadin-text-field caption="Kod Pocztowy" style-name="align-right" width="300px" _id="kod"></vaadin-text-field>
+      <vaadin-horizontal-layout width="150px">
+       <vaadin-text-field caption="Kod Pocztowy" style-name="align-right" width="50px" _id="kod" :bottom :expand></vaadin-text-field>
+       <vaadin-label width="12px" height="15px" plain-text :middle>
+         _ 
+       </vaadin-label>
+       <vaadin-text-field width="100px" _id="pocztowy" :bottom :expand></vaadin-text-field>
+      </vaadin-horizontal-layout>
      </vaadin-horizontal-layout>
     </vaadin-vertical-layout>
     <vaadin-vertical-layout style-name="card" size-auto>

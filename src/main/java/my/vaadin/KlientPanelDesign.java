@@ -23,6 +23,7 @@ public class KlientPanelDesign extends CssLayout {
     protected Button settings;
     protected Panel ankietyPanel;
     protected Panel choiceAnkietyPanel;
+    protected Button wyslij;
 
     public KlientPanelDesign() {
         Design.read(this);

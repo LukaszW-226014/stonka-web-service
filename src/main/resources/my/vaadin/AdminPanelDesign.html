@@ -16,126 +16,18 @@
       </vaadin-label>
       <vaadin-button icon="fonticon://Vaadin-Icons/e78f" style-name="danger" width="200px" height="50px" _id="home" :middle :center></vaadin-button>
      </vaadin-vertical-layout>
+     <vaadin-label style-name="h2" plain-text>
+       Ankiety: 
+     </vaadin-label>
      <vaadin-css-layout size-full :expand>
-      <vaadin-vertical-layout size-full>
-       <vaadin-label style-name="h2" plain-text>
-         Ankiety: 
-       </vaadin-label>
-       <vaadin-panel size-full tabindex="0">
-        <vaadin-grid size-full _id="ankietyGrid">
-         <table>
-          <colgroup>
-           <col column-id="project" sortable="false">
-           <col column-id="status" sortable="false">
-          </colgroup>
-          <thead>
-           <tr default>
-            <th plain-text column-ids="project">Project</th>
-            <th plain-text column-ids="status">Status</th>
-           </tr>
-          </thead>
-          <tbody>
-           <tr item="project1">
-            <td>Customer Project 1</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project2">
-            <td>Customer Project 2</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project3">
-            <td>Customer Project 3</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project4">
-            <td>Customer Project 4</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project5">
-            <td>Customer Project 5</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project6">
-            <td>Customer Project 6</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project7">
-            <td>Customer Project 7</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project8">
-            <td>Customer Project 8</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project9">
-            <td>Customer Project 9</td>
-            <td>OK</td>
-           </tr>
-          </tbody>
-         </table>
-        </vaadin-grid>
-       </vaadin-panel>
-      </vaadin-vertical-layout>
+      <vaadin-panel size-full tabindex="0" _id="ankietyPanel"></vaadin-panel>
      </vaadin-css-layout>
     </vaadin-vertical-layout>
-    <vaadin-vertical-layout style-name="card" size-full>
+    <vaadin-vertical-layout style-name="card" size-full :expand>
      <vaadin-label style-name="h2" plain-text>
        Sklepy: 
      </vaadin-label>
-     <vaadin-panel size-full :expand>
-      <vaadin-grid size-full _id="sklepyGrid">
-       <table>
-        <colgroup>
-         <col column-id="project" sortable="false">
-         <col column-id="status" sortable="false">
-        </colgroup>
-        <thead>
-         <tr default>
-          <th plain-text column-ids="project">Project</th>
-          <th plain-text column-ids="status">Status</th>
-         </tr>
-        </thead>
-        <tbody>
-         <tr item="project1">
-          <td>Customer Project 1</td>
-          <td>OK</td>
-         </tr>
-         <tr item="project2">
-          <td>Customer Project 2</td>
-          <td>OK</td>
-         </tr>
-         <tr item="project3">
-          <td>Customer Project 3</td>
-          <td>OK</td>
-         </tr>
-         <tr item="project4">
-          <td>Customer Project 4</td>
-          <td>OK</td>
-         </tr>
-         <tr item="project5">
-          <td>Customer Project 5</td>
-          <td>OK</td>
-         </tr>
-         <tr item="project6">
-          <td>Customer Project 6</td>
-          <td>OK</td>
-         </tr>
-         <tr item="project7">
-          <td>Customer Project 7</td>
-          <td>OK</td>
-         </tr>
-         <tr item="project8">
-          <td>Customer Project 8</td>
-          <td>OK</td>
-         </tr>
-         <tr item="project9">
-          <td>Customer Project 9</td>
-          <td>OK</td>
-         </tr>
-        </tbody>
-       </table>
-      </vaadin-grid>
-     </vaadin-panel>
+     <vaadin-panel size-full _id="sklepyPanel" :expand></vaadin-panel>
      <vaadin-vertical-layout style-name="well" size-full :expand>
       <vaadin-css-layout :middle :center>
        <vaadin-form-layout size-auto>
@@ -159,64 +51,7 @@
      <vaadin-label style-name="h2" plain-text>
        Uzytkownicy: 
      </vaadin-label>
-     <vaadin-tab-sheet size-full _id="tabSheet" :expand>
-      <tab caption="Tab" selected>
-       <vaadin-panel size-auto>
-        <vaadin-grid>
-         <table>
-          <colgroup>
-           <col column-id="project" sortable="false">
-           <col column-id="status" sortable="false">
-          </colgroup>
-          <thead>
-           <tr default>
-            <th plain-text column-ids="project">Project</th>
-            <th plain-text column-ids="status">Status</th>
-           </tr>
-          </thead>
-          <tbody>
-           <tr item="project1">
-            <td>Customer Project 1</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project2">
-            <td>Customer Project 2</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project3">
-            <td>Customer Project 3</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project4">
-            <td>Customer Project 4</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project5">
-            <td>Customer Project 5</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project6">
-            <td>Customer Project 6</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project7">
-            <td>Customer Project 7</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project8">
-            <td>Customer Project 8</td>
-            <td>OK</td>
-           </tr>
-           <tr item="project9">
-            <td>Customer Project 9</td>
-            <td>OK</td>
-           </tr>
-          </tbody>
-         </table>
-        </vaadin-grid>
-       </vaadin-panel>
-      </tab>
-     </vaadin-tab-sheet>
+     <vaadin-css-layout size-full _id="uzytPanel" :expand></vaadin-css-layout>
      <vaadin-vertical-layout style-name="well" size-full :expand>
       <vaadin-css-layout :middle :center>
        <vaadin-form-layout size-auto>

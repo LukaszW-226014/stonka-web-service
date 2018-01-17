@@ -29,6 +29,6 @@ public class Pytanie implements Serializable {
 
     @Override
     public String toString() {
-        return idPytania + ". " + tresc;
+        return tresc;
     }
 }
