@@ -160,7 +160,7 @@ public class RegistrationForm extends RegistrationFormDesign{
         String pesel1 = pesel.getValue();
         String email1 = email.getValue();
         String haslo1 = haslo.getValue();
-        String data1 = data.getAssistiveText();
+        LocalDate data1 = data.getValue();
         String ulica1 = ulica.getValue();
         String numer1 = nrDomu.getValue();
         String miejscowosc1 = miejscowosc.getValue();
@@ -183,7 +183,7 @@ public class RegistrationForm extends RegistrationFormDesign{
             stmt = conn.createStatement();
 
             String sql = "INSERT INTO klienci(imie, nazwisko, pesel, email, haslo, dataUrodzenia, ulica, nrDomu, miejscowosc, kod, pocztowy) "
-                    + "VALUES (" + "\'" + imie1 + "\'" + "," + "\'" + nazwisko1 + "\'" + "," + "\'" + pesel1 + "\'" + "," + "\'" + email1 + "\'" + "," + "\'" + haslo1 + "\'" + "," + "\'" + data1 + "\'"+ "," + "\'" + ulica1 + "\'"+ "," + "\'" + numer1 + "\'"+ "," + "\'" + miejscowosc1 + "\'"+ "," + "\'" + kod1 + "\'" + "," + "\'" + pocztowy1 + "\'"+ ")";
+                    + "VALUES (" + "\'" + imie1 + "\'" + "," + "\'" + nazwisko1 + "\'" + "," + "\'" + pesel1 + "\'" + "," + "\'" + email1 + "\'" + "," + "\'" + haslo1 + "\'" + "," + "\'" + data1.toString() + "\'"+ "," + "\'" + ulica1 + "\'"+ "," + "\'" + numer1 + "\'"+ "," + "\'" + miejscowosc1 + "\'"+ "," + "\'" + kod1 + "\'" + "," + "\'" + pocztowy1 + "\'"+ ")";
             //String sql = "INSERT INTO  klienci VALUES (2,'janek','dzbanek','94110201234', 'janek12@gmail.com', 'janek1')";
             //ResultSet rs = stmt.executeQuery(sql);
 

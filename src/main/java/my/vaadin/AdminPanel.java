@@ -39,6 +39,8 @@ public class AdminPanel extends AdminPanelDesign implements View, SwitchView {
 
         //#2
         Panel tab2anal = new Panel();
+        tab2anal.setHeight("350");
+        downloadAnalTable(tab2anal);
         users.addTab(tab2anal, "Analitycy");
 
         //#3
@@ -49,75 +51,6 @@ public class AdminPanel extends AdminPanelDesign implements View, SwitchView {
         Panel tab4klien = new Panel();
         users.addTab(tab4klien, "Klienci");
 
-    }
-
-    public void downloadAdminTable(Panel panel){
-        List<Administratorzy> adminList = new ArrayList<>();
-
-        Connection conn2 = null;
-        Statement stmt3 = null;
-        try{
-            //STEP 2: Register JDBC driver
-            Class.forName(JDBC_DRIVER);
-
-            //STEP 3: Open a connection
-            System.out.println("Connecting to a selected database...");
-            conn2 = DriverManager.getConnection(DB_URL, USER, PASS);
-            System.out.println("Connected database successfully...");
-
-            //STEP 4: Execute a query
-            System.out.println("Creating statement...");
-            stmt3 = conn2.createStatement();
-
-            String sql3;
-            sql3 = "SELECT idAdministratorzy, imie, nazwisko, email, pesel FROM administratorzy";
-            //String sql = "INSERT INTO  klienci VALUES (2,'janek','dzbanek','94110201234', 'janek12@gmail.com', 'janek1')";
-            ResultSet rs3 = stmt3.executeQuery(sql3);
-            while (rs3.next()){
-                int i = 0;
-                int id1 = rs3.getInt("idAdministratorzy");
-                String imie1 = rs3.getString("imie");
-                String nazwisko1 = rs3.getString("nazwisko");
-                String email1 = rs3.getString("email");
-                String pesel1 = rs3.getString("pesel");
-                adminList.add(new Administratorzy(id1, imie1, nazwisko1, email1, pesel1));
-                System.out.println(adminList.get(i).toString());
-                i++;
-            }
-            //stmt.executeUpdate(sql);
-            //rs.close();
-        }catch(SQLException se){
-            //Handle errors for JDBC
-            se.printStackTrace();
-        }catch(Exception e){
-            //Handle errors for Class.forName
-            e.printStackTrace();
-        }finally{
-            //finally block used to close resources
-            try{
-                if(stmt3!=null)
-                    conn2.close();
-            }catch(SQLException se){
-            }// do nothing
-            try{
-                if(conn2!=null)
-                    conn2.close();
-            }catch(SQLException se){
-                se.printStackTrace();
-            }//end finally try
-        }//end try
-        System.out.println("Done!");
-
-        //create grid
-        Grid<Administratorzy> adminGrid = new Grid<>();
-        adminGrid.setItems(adminList);
-        adminGrid.addColumn(Administratorzy::getId).setCaption("ID");
-        adminGrid.addColumn(Administratorzy::getImie).setCaption("Imie");
-        adminGrid.addColumn(Administratorzy::getNazwisko).setCaption("Nazwisko");
-        adminGrid.addColumn(Administratorzy::getEmail).setCaption("Email");
-        adminGrid.addColumn(Administratorzy::getPesel).setCaption("Pesel");
-        adminGrid.setSizeFull();
-        panel.setContent(adminGrid);
     }
 
 
@@ -188,6 +121,145 @@ public class AdminPanel extends AdminPanelDesign implements View, SwitchView {
         sklepyGrid.addColumn(Sklepy::getKodPocztowy).setCaption("Kod Pocztowy");
         sklepyGrid.setSizeFull();
         sklepyPanel.setContent(sklepyGrid);
+    }
+
+    public void downloadAnalTable(Panel panel){
+        List<Analitycy> analList = new ArrayList<>();
+
+        Connection conn2 = null;
+        Statement stmt3 = null;
+        try{
+            //STEP 2: Register JDBC driver
+            Class.forName(JDBC_DRIVER);
+
+            //STEP 3: Open a connection
+            System.out.println("Connecting to a selected database...");
+            conn2 = DriverManager.getConnection(DB_URL, USER, PASS);
+            System.out.println("Connected database successfully...");
+
+            //STEP 4: Execute a query
+            System.out.println("Creating statement...");
+            stmt3 = conn2.createStatement();
+
+            String sql3;
+            sql3 = "SELECT idAnalitycy, imie, nazwisko, email, pesel FROM analitycy";
+            //String sql = "INSERT INTO  klienci VALUES (2,'janek','dzbanek','94110201234', 'janek12@gmail.com', 'janek1')";
+            ResultSet rs3 = stmt3.executeQuery(sql3);
+            while (rs3.next()){
+                int i = 0;
+                int id1 = rs3.getInt("idAnalitycy");
+                String imie1 = rs3.getString("imie");
+                String nazwisko1 = rs3.getString("nazwisko");
+                String email1 = rs3.getString("email");
+                String pesel1 = rs3.getString("pesel");
+                analList.add(new Analitycy(id1, imie1, nazwisko1, email1, pesel1));
+                System.out.println(analList.get(i).toString());
+                i++;
+            }
+            //stmt.executeUpdate(sql);
+            //rs.close();
+        }catch(SQLException se){
+            //Handle errors for JDBC
+            se.printStackTrace();
+        }catch(Exception e){
+            //Handle errors for Class.forName
+            e.printStackTrace();
+        }finally{
+            //finally block used to close resources
+            try{
+                if(stmt3!=null)
+                    conn2.close();
+            }catch(SQLException se){
+            }// do nothing
+            try{
+                if(conn2!=null)
+                    conn2.close();
+            }catch(SQLException se){
+                se.printStackTrace();
+            }//end finally try
+        }//end try
+        System.out.println("Done!");
+
+        //create grid
+        Grid<Analitycy> analGrid = new Grid<>();
+        analGrid.setItems(analList);
+        analGrid.addColumn(Analitycy::getId).setCaption("ID");
+        analGrid.addColumn(Analitycy::getImie).setCaption("Imie");
+        analGrid.addColumn(Analitycy::getNazwisko).setCaption("Nazwisko");
+        analGrid.addColumn(Analitycy::getEmail).setCaption("Email");
+        analGrid.addColumn(Analitycy::getPesel).setCaption("Pesel");
+        analGrid.setSizeFull();
+        panel.setContent(analGrid);
+    }
+
+
+    public void downloadAdminTable(Panel panel){
+        List<Administratorzy> adminList = new ArrayList<>();
+
+        Connection conn2 = null;
+        Statement stmt3 = null;
+        try{
+            //STEP 2: Register JDBC driver
+            Class.forName(JDBC_DRIVER);
+
+            //STEP 3: Open a connection
+            System.out.println("Connecting to a selected database...");
+            conn2 = DriverManager.getConnection(DB_URL, USER, PASS);
+            System.out.println("Connected database successfully...");
+
+            //STEP 4: Execute a query
+            System.out.println("Creating statement...");
+            stmt3 = conn2.createStatement();
+
+            String sql3;
+            sql3 = "SELECT idAdministratorzy, imie, nazwisko, email, pesel FROM administratorzy";
+            //String sql = "INSERT INTO  klienci VALUES (2,'janek','dzbanek','94110201234', 'janek12@gmail.com', 'janek1')";
+            ResultSet rs3 = stmt3.executeQuery(sql3);
+            while (rs3.next()){
+                int i = 0;
+                int id1 = rs3.getInt("idAdministratorzy");
+                String imie1 = rs3.getString("imie");
+                String nazwisko1 = rs3.getString("nazwisko");
+                String email1 = rs3.getString("email");
+                String pesel1 = rs3.getString("pesel");
+                adminList.add(new Administratorzy(id1, imie1, nazwisko1, email1, pesel1));
+                System.out.println(adminList.get(i).toString());
+                i++;
+            }
+            //stmt.executeUpdate(sql);
+            //rs.close();
+        }catch(SQLException se){
+            //Handle errors for JDBC
+            se.printStackTrace();
+        }catch(Exception e){
+            //Handle errors for Class.forName
+            e.printStackTrace();
+        }finally{
+            //finally block used to close resources
+            try{
+                if(stmt3!=null)
+                    conn2.close();
+            }catch(SQLException se){
+            }// do nothing
+            try{
+                if(conn2!=null)
+                    conn2.close();
+            }catch(SQLException se){
+                se.printStackTrace();
+            }//end finally try
+        }//end try
+        System.out.println("Done!");
+
+        //create grid
+        Grid<Administratorzy> adminGrid = new Grid<>();
+        adminGrid.setItems(adminList);
+        adminGrid.addColumn(Administratorzy::getId).setCaption("ID");
+        adminGrid.addColumn(Administratorzy::getImie).setCaption("Imie");
+        adminGrid.addColumn(Administratorzy::getNazwisko).setCaption("Nazwisko");
+        adminGrid.addColumn(Administratorzy::getEmail).setCaption("Email");
+        adminGrid.addColumn(Administratorzy::getPesel).setCaption("Pesel");
+        adminGrid.setSizeFull();
+        panel.setContent(adminGrid);
     }
 
     public void downloadAnkietyTable(){
