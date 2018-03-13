@@ -8,4 +8,5 @@ Technologies
 ========
 
 app = Java with Vaadin framework
+
 database = MySQL
